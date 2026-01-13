@@ -1,6 +1,6 @@
 
 ## 🚀 Live Preview
-**Site Url:** [https://mern-harshsharma-assignment-6.onrender.com/seller](https://mern-harshsharma-assignment-6.onrender.com/seller)
+**Site Url:** [https://mern-harshsharma-assignment-8.onrender.com](https://mern-harshsharma-assignment-8.onrender.com)
 
 ---
 

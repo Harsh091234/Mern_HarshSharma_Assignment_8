@@ -1,4 +1,4 @@
-import { taskReminderTemplate } from "../../../client/src/templates/email.template.js";
+import { taskReminderTemplate } from "../templates/email.template.js";
 import transporter from "../config/mailer.js";
 
 export const sendTaskReminder = async ({ to, task }) => {

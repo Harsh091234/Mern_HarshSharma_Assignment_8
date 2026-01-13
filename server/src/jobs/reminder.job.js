@@ -48,7 +48,7 @@ cron.schedule("*/10 * * * *", async () => {
                 `✅ Reminder sent for task: ${task.title} (${task.reminderType})`
             );
 
-            // Optional: mark that 1-day reminder was sent separately
+        
             if (!task.remindersSent) task.remindersSent = [];
             task.remindersSent.push(task.reminderType);
 

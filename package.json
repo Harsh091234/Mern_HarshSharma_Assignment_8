@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
       "install-all": "pnpm install --prefix server && pnpm install --prefix client",
-      "build-server": "pnpm --prefix server run build",
+     
       "build-client": "pnpm --prefix client run build",
-      "build": "pnpm run install-all && pnpm run build-server && pnpm run build-client",
+      "build": "pnpm run install-all &&  pnpm run build-client",
     "start": "pnpm --prefix server start"
   },
   "keywords": [],

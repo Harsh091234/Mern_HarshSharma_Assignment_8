@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "npm install --prefix server && npm install --prefix client && npm run build --prefix client",
-    "start": "npm run start --prefix server"
+    "build": "pnpm install --prefix server && pnpm install --prefix client && pnpm run build --prefix client",
+    "start": "pnpm run start --prefix server"
   },
   "keywords": [],
   "author": "",

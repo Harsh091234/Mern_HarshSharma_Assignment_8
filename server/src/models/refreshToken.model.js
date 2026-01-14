@@ -36,7 +36,7 @@ refreshTokenSchema.index(
         createdAt: 1,
     },
     {
-        expireAfterSeconds: 900,
+        expireAfterSeconds: 3600,
     }
 );
 

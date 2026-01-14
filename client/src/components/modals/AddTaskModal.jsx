@@ -18,7 +18,7 @@ export const AddTaskModal = ({ onClose}) => {
         onClose();
     }
     return (
-        <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50">
+        <div className="fixed px-2 inset-0 bg-black/60 flex items-center justify-center z-50">
             <div className="bg-gray-900 w-full max-w-lg rounded-xl p-6 shadow-lg text-white">
          
                 <div className="flex justify-between items-center mb-4">

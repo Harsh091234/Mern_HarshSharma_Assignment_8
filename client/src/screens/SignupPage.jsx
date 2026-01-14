@@ -28,7 +28,7 @@ const SignupPage = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-sky-500 to-black">
+    <div className="min-h-screen px-2 flex items-center justify-center bg-gradient-to-br from-sky-500 to-black">
       <div className="w-full max-w-md bg-black/80 backdrop-blur-md p-8 rounded-2xl shadow-2xl text-white">
 
  

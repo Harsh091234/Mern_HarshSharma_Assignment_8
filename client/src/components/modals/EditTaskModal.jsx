@@ -18,7 +18,7 @@ export const EditTaskModal = ({task, onClose}) => {
     };
 
     return (
-        <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50">
+        <div className="fixed inset-0 px-2 bg-black/60 flex items-center justify-center z-50">
             <div className="bg-gray-900 w-full max-w-lg rounded-xl p-6 shadow-lg">
                 <h2 className="text-xl font-semibold mb-4">Edit Task</h2>
 

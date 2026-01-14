@@ -53,91 +53,93 @@ const navigate = useNavigate();
 
     if(isLoading) return;
     return (
-        <div className="min-h-screen py-6 px-10 bg-gradient-to-br from-sky-500 to-black text-white">
+        <div className="min-h-screen py-6 max-sm:px-2 px-10 bg-gradient-to-br from-sky-500 to-black text-white">
 
   
-            <div className="flex justify-between items-center mb-6">
-                <h1 className="text-3xl font-bold">My Tasks</h1>
-               <div className="flex gap-4">
+        <div className="flex flex-col gap-4 mb-6 md:flex-row md:justify-between md:items-center">
+          <h1 className="text-2xl md:text-3xl font-bold text-center md:text-left">
+            My Tasks
+          </h1>
+
+          <div className="flex flex-col gap-3 md:flex-row md:gap-4">
             <button
               onClick={() => setShowModal(true)}
-              className="flex items-center gap-2 bg-sky-500 hover:bg-sky-600 text-black px-4 py-2 rounded-lg font-semibold transition"
+              className="flex items-center justify-center gap-2 bg-sky-500 hover:bg-sky-600 text-black px-4 py-2 rounded-lg font-semibold transition w-full md:w-auto"
             >
               <Plus size={18} />
               Add Task
             </button>
+
             <button
               onClick={handleLogout}
-              className="flex items-center gap-2 bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg font-semibold transition"
+              className="flex items-center justify-center gap-2 bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg font-semibold transition w-full md:w-auto"
             >
-              <LogOut size={18} /> Logout
+              <LogOut size={18} />
+              Logout
             </button>
-               </div>
-               
-            </div>
+          </div>
+        </div>
+
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
               {tasks.map((task) => (
-  <div
-    key={task._id}
-    className={`flex items-center justify-between p-4 rounded-lg shadow-md ${
-      task.completed ? "bg-gray-700 line-through" : "bg-black/70"
-    }`}
-  >
+                <div
+                  key={task._id}
+                  className={`flex flex-col gap-4 p-4 rounded-lg shadow-md md:flex-row md:items-center md:justify-between ${task.status === "completed" ? "bg-gray-700 line-through" : "bg-black/70"
+                    }`}
+                >
+                  {/* Left section */}
+                  <div className="flex items-start gap-3">
+                    <input
+                      type="checkbox"
+                      checked={task.status === "completed"}
+                      onChange={() => handleCheckbox(task)}
+                      className="accent-sky-500 w-5 h-5 mt-1"
+                    />
 
-    <div className="flex items-center gap-3">
-      <input
-        type="checkbox"
-        checked={task.status === "completed"}
-        onChange={() => handleCheckbox(task)}
-        className="accent-sky-500 w-5 h-5"
-      />
+                    <div className="space-y-1 break-words">
+                      <p className="font-semibold text-base">
+                        {task.title}
+                      </p>
 
-      <div className="space-y-1">
-        <p className="font-semibold">{task.title}</p>
+                      {task.description && (
+                        <p className="text-sm text-gray-400">
+                          {task.description}
+                        </p>
+                      )}
 
-    
-        {task.description && (
-          <p className="text-sm text-gray-400">
-            {task.description}
-          </p>
-        )}
+                      <p className="text-xs text-gray-300">
+                        Due: {formatDate(task.dueDate)} • Priority: {task.priority} • Status:{" "}
+                        <span
+                          className={`font-medium ${task.status === "completed"
+                              ? "text-green-400"
+                              : task.status === "in-progress"
+                                ? "text-yellow-400"
+                                : "text-red-400"
+                            }`}
+                        >
+                          {task.status}
+                        </span>
+                      </p>
+                    </div>
+                  </div>
 
-   
-        <p className="text-xs text-gray-300 ">
-          Due: {formatDate(task.dueDate)} • Priority: {task.priority} • Status:{" "}
-          <span
-            className={`font-medium ${
-              task.status === "completed"
-                ? "text-green-400"
-                : task.status === "in-progress"
-                ? "text-yellow-400"
-                : "text-red-400"
-            }`}
-          >
-            {task.status}
-          </span>
-        </p>
-      </div>
-    </div>
+                  {/* Right section */}
+                  <div className="flex items-center justify-end gap-3 md:justify-center">
+                    <span
+                      className={`w-3 h-3 rounded-full ${priorityColors[task.priority]}`}
+                    />
 
-  
-    <div className="flex items-center gap-3">
-      <span
-        className={`w-3 h-3 rounded-full ${priorityColors[task.priority]}`}
-      />
+                    <button
+                      onClick={() => setEditingTask(task)}
+                      className="text-blue-400 hover:text-blue-500 transition text-lg"
+                      title="Edit task"
+                    >
+                      ✏️
+                    </button>
+                  </div>
+                </div>
 
-      <button
-        onClick={() => setEditingTask(task)}
-        className="text-blue-400 hover:text-blue-500 transition"
-        title="Edit task"
-      >
-        ✏️
-      </button>
-
-     
-    </div>
-  </div>
 ))}
 
                 {

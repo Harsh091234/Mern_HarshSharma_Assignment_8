@@ -35,6 +35,7 @@
 ###  Environment Variables Setup
 
 #### Server (.env)
+```bash
 PORT=5000
 NODE_ENV=dev
 MONGO_URI=xxxxxxxxxxxxxxxxxxxxx
